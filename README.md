@@ -167,6 +167,52 @@ Examples:
 | `uptime` | System uptime and load averages. |
 | `history` | Previously entered shell commands. |
 
+
+### Linux Filesystem and Directory Navigation
+
+| Command | What it tells you |
+|---|---|
+| `ls` | Lists files and directories in the current location. |
+| `ls -l` | Displays files with detailed information, including permissions, ownership and size. |
+| `ls -a` | Displays all entries, including hidden files and directories. |
+| `ls -lh` | Displays file details with human-readable sizes. |
+| `ls -lah` | Displays all entries, including hidden ones, with detailed information and human-readable sizes. |
+| `ls /var/log` | Lists the contents of the system log directory. |
+| `ls -la` | Displays all entries with detailed information. |
+| `ls -l ~/.bashrc` | Displays detailed information about the user's Bash configuration file. |
+| `head -20 ~/.bashrc` | Displays the first 20 lines of the Bash configuration file. |
+| `cd /` | Changes the current directory to the filesystem root. |
+| `cd ~` | Changes the current directory to the current user's home directory. |
+| `cd` | Takes the user to their home directory. |
+| `cd ..` | Moves one level up to the parent directory. |
+| `cd ../..` | Moves two directory levels up. |
+| `cd -` | Switches to the previous working directory. |
+| `cd /etc` | Navigates directly to the `/etc` directory. |
+| `cd /var/log` | Navigates directly to the system log directory. |
+| `cd Documents` | Navigates to a directory named Documents relative to the current location. |
+| `cd projects` | Navigates to the projects directory relative to the current location. |
+| `cd ../documents` | Navigates to the documents directory in the parent directory, if it exists. |
+| `cd ./projects` | Navigates to the projects directory relative to the current directory. |
+| `tree` | Displays files and directories in a hierarchical tree structure. |
+| `tree -L 1` | Displays the directory tree up to one level. |
+| `tree -L 2` | Displays the directory tree up to two levels. |
+| `tree -d` | Displays directories only. |
+| `tree -a` | Includes hidden files and directories in the tree. |
+| `tree -h` | Displays file sizes in human-readable format. |
+| `tree /var/log` | Displays the directory tree of `/var/log`. |
+| `tree -d -L 2` | Displays directories only, up to two levels deep. |
+| `tree -a -L 2` | Displays all entries, including hidden ones, up to two levels deep. |
+
+**Path symbols:**
+
+| Symbol | Meaning |
+|---|---|
+| `/` | Filesystem root directory. |
+| `~` | Current user's home directory. |
+| `.` | Current directory. |
+| `..` | Parent directory. |
+| `-` | Previous working directory when used with `cd`. |
+
 ---
 
 
