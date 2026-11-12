@@ -1,17 +1,4 @@
-# Linux Administration
 
-## Table of Contents
-
-1. [Linux Basics and System Information](#1-linux-basics-and-system-information)
-2. [Linux Architecture](#2-linux-architecture)
-3. [Terminal and Shell](#3-terminal-and-shell)
-4. [CLI and GUI](#4-cli-and-gui)
-5. [Linux Boot Process](#5-linux-boot-process)
-6. [Linux Command Syntax](#6-linux-command-syntax)
-7. [Getting Help in Linux](#7-getting-help-in-linux)
-8. [Basic Linux Commands](#8-basic-linux-commands)
-
----
 
 ## 1. Linux Basics and System Information
 
@@ -215,6 +202,265 @@ Examples:
 
 ---
 
+### System Information
 
-**My learning rule:** Every new Linux command will be added to this README under its respective topic, along with a concise explanation and practical learning status.
-# Linux-commands
+| Command | Description |
+|---|---|
+| `date` | Displays the current system date and time. |
+| `cal` | Displays the calendar. |
+| `uname` | Displays basic system information. |
+| `uname -a` | Displays all available kernel and system information. |
+| `hostname` | Displays the system's hostname. |
+| `whoami` | Displays the current logged-in username. |
+| `id` | Displays the current user's UID, GID and supplementary groups. |
+| `groups` | Displays the groups to which the current user belongs. |
+| `history` | Displays previously executed commands. |
+| `clear` | Clears the terminal screen. |
+| `man command` | Opens the manual page for a command. |
+| `command --help` | Displays command usage and available options. |
+| `whatis command` | Displays a brief description of a command. |
+| `apropos keyword` | Searches manual descriptions for a keyword. |
+
+### File and Directory Management
+
+| Command | Description |
+|---|---|
+| `touch file.txt` | Creates an empty file or updates its timestamp. |
+| `mkdir directory` | Creates a directory. |
+| `mkdir -p a/b/c` | Creates parent directories when required. |
+| `cp file1 file2` | Copies a file. |
+| `cp -r dir1 dir2` | Copies a directory recursively. |
+| `mv file1 file2` | Moves or renames a file. |
+| `rm file.txt` | Removes a file. |
+| `rm -r directory` | Removes a directory and its contents recursively. |
+| `rmdir directory` | Removes an empty directory. |
+| `cat file.txt` | Displays file contents. |
+| `less file.txt` | Views file contents page by page. |
+| `more file.txt` | Displays file contents one screen at a time. |
+| `head file.txt` | Displays the first 10 lines of a file. |
+| `head -n 5 file.txt` | Displays the first 5 lines. |
+| `tail file.txt` | Displays the last 10 lines of a file. |
+| `tail -n 20 file.txt` | Displays the last 20 lines. |
+| `tail -f file.log` | Continuously monitors new log entries. |
+| `wc file.txt` | Displays line, word and byte counts. |
+| `wc -l file.txt` | Counts the number of lines. |
+| `diff file1 file2` | Compares two files line by line. |
+
+### File Searching and Text Processing
+
+| Command | Description |
+|---|---|
+| `find /path -name "file.txt"` | Searches for a file by name. |
+| `find /path -type f` | Finds files only. |
+| `find /path -type d` | Finds directories only. |
+| `find /path -size +100M` | Finds files larger than 100 MB. |
+| `find /path -mtime -7` | Finds files modified within the last 7 days. |
+| `grep "error" file.log` | Searches for a specific word or pattern. |
+| `grep -i "error" file.log` | Searches without case sensitivity. |
+| `grep -r "error" /var/log` | Searches recursively inside directories. |
+| `grep -n "error" file.log` | Displays matching lines with line numbers. |
+| `grep -v "error" file.log` | Displays lines that do not match. |
+| `locate filename` | Searches files using the locate database. |
+| `tar -cvf archive.tar directory/` | Creates a tar archive. |
+| `tar -xvf archive.tar` | Extracts a tar archive. |
+| `tar -czvf archive.tar.gz directory/` | Creates a compressed tar archive. |
+| `tar -xzvf archive.tar.gz` | Extracts a gzip-compressed tar archive. |
+| `gzip file.txt` | Compresses a file using gzip. |
+| `gunzip file.txt.gz` | Decompresses a gzip file. |
+| `zip archive.zip file.txt` | Creates a ZIP archive. |
+| `unzip archive.zip` | Extracts a ZIP archive. |
+
+### File Permissions and Ownership
+
+| Command | Description |
+|---|---|
+| `ls -l` | Displays file permissions and ownership. |
+| `chmod 755 file.sh` | Sets permissions to `rwxr-xr-x`. |
+| `chmod 644 file.txt` | Sets permissions to `rw-r--r--`. |
+| `chmod +x script.sh` | Adds execute permission. |
+| `chmod u+x file.sh` | Adds execute permission for the owner. |
+| `chown user file.txt` | Changes file ownership. |
+| `chown user:group file.txt` | Changes file owner and group. |
+| `chown -R user:group directory/` | Changes ownership recursively. |
+| `chgrp group file.txt` | Changes the group ownership. |
+| `umask` | Displays the current file creation mask. |
+| `umask 022` | Sets the file creation mask to 022. |
+| `getfacl file.txt` | Displays file access control lists (ACLs). |
+| `setfacl -m u:username:rw file.txt` | Grants read and write ACL permissions to a user. |
+| `setfacl -x u:username file.txt` | Removes a user's ACL entry. |
+| `chmod u+s file` | Sets the SUID permission bit. |
+| `chmod g+s directory` | Sets the SGID permission bit. |
+| `chmod +t directory` | Sets the sticky bit. |
+
+### Users, Groups and Sudo
+
+| Command | Description |
+|---|---|
+| `whoami` | Displays the current username. |
+| `id` | Displays UID, GID and supplementary groups. |
+| `groups username` | Displays groups belonging to a user. |
+| `sudo -l` | Lists commands the current user can execute with sudo. |
+| `sudo useradd username` | Creates a user account. |
+| `sudo adduser username` | Creates a user using the interactive adduser utility. |
+| `sudo passwd username` | Sets or changes a user's password. |
+| `sudo usermod -aG group username` | Adds a user to a supplementary group. |
+| `sudo usermod -l newname oldname` | Renames a user account. |
+| `sudo userdel username` | Deletes a user account. |
+| `sudo userdel -r username` | Deletes a user and their home directory. |
+| `sudo groupadd groupname` | Creates a group. |
+| `sudo groupmod -n newgroup oldgroup` | Renames a group. |
+| `sudo groupdel groupname` | Deletes a group. |
+| `sudo passwd -l username` | Locks a user's password. |
+| `sudo passwd -u username` | Unlocks a user's password. |
+| `cat /etc/passwd` | Displays user account information. |
+| `sudo cat /etc/shadow` | Displays protected password hash information. |
+| `cat /etc/group` | Displays group information. |
+| `sudo visudo` | Safely edits the sudoers configuration. |
+
+### Process, CPU and Memory Management
+
+| Command | Description |
+|---|---|
+| `ps` | Displays processes associated with the current terminal. |
+| `ps aux` | Displays detailed information about running processes. |
+| `ps -ef` | Displays processes in full-format listing. |
+| `top` | Displays real-time process and resource information. |
+| `htop` | Provides an interactive process monitoring interface. |
+| `pgrep nginx` | Finds process IDs matching a process name. |
+| `pidof nginx` | Displays process IDs for a running program. |
+| `kill PID` | Sends the default SIGTERM signal to a process. |
+| `kill -9 PID` | Forcefully terminates a process using SIGKILL. |
+| `kill -15 PID` | Sends SIGTERM to a process. |
+| `pkill nginx` | Sends a signal to processes matching a name. |
+| `killall nginx` | Sends a signal to processes named nginx. |
+| `nice -n 10 command` | Starts a command with a specified niceness value. |
+| `renice 5 -p PID` | Changes the niceness of a running process. |
+| `free -h` | Displays RAM and swap usage in human-readable format. |
+| `uptime` | Displays system uptime and load averages. |
+| `pstree -p` | Displays processes in a tree structure with PIDs. |
+
+### Services and systemd
+
+| Command | Description |
+|---|---|
+| `systemctl status service` | Displays the status of a service. |
+| `sudo systemctl start service` | Starts a service. |
+| `sudo systemctl stop service` | Stops a service. |
+| `sudo systemctl restart service` | Restarts a service. |
+| `sudo systemctl reload service` | Reloads service configuration without a full restart, if supported. |
+| `sudo systemctl enable service` | Enables a service at system startup. |
+| `sudo systemctl disable service` | Disables automatic startup of a service. |
+| `systemctl is-active service` | Checks whether a service is active. |
+| `systemctl is-enabled service` | Checks whether a service is enabled. |
+| `systemctl list-units --type=service` | Lists loaded service units. |
+| `systemctl --failed` | Displays failed systemd units. |
+| `systemctl cat service` | Displays a service unit's configuration. |
+
+### Logs and Log Analysis
+
+| Command | Description |
+|---|---|
+| `ls /var/log` | Lists system log files and directories. |
+| `journalctl` | Displays systemd journal logs. |
+| `journalctl -xe` | Displays recent journal entries with additional details. |
+| `journalctl -u service` | Displays logs for a specific service. |
+| `journalctl -f` | Follows new journal entries in real time. |
+| `journalctl -u service -f` | Follows logs for a specific service. |
+| `tail -f /var/log/syslog` | Continuously monitors the system log. |
+| `grep -i error file.log` | Searches logs for errors without case sensitivity. |
+| `sudo logrotate -d /etc/logrotate.conf` | Tests logrotate configuration without making changes. |
+| `sudo logrotate -f /etc/logrotate.conf` | Forces log rotation. |
+
+### Disk, Storage and Memory
+
+| Command | Description |
+|---|---|
+| `df -h` | Displays filesystem disk usage in human-readable format. |
+| `df -Th` | Displays filesystem types and disk usage. |
+| `df -i` | Displays inode usage. |
+| `du -sh directory/` | Displays total directory size. |
+| `du -ah directory/` | Displays sizes of files and directories. |
+| `du -h --max-depth=1 /var` | Displays sizes of immediate subdirectories in `/var`. |
+| `lsblk` | Lists block devices and partitions. |
+| `lsblk -f` | Displays filesystem information for block devices. |
+| `blkid` | Displays block device UUIDs and filesystem types. |
+| `sudo fdisk -l` | Lists disk partitions. |
+| `mount` | Displays currently mounted filesystems. |
+| `sudo mount device mountpoint` | Mounts a filesystem. |
+| `sudo umount mountpoint` | Unmounts a filesystem. |
+| `cat /etc/fstab` | Displays persistent filesystem mount configuration. |
+| `free -h` | Displays RAM and swap usage. |
+| `swapon --show` | Displays active swap devices and files. |
+| `docker system df` | Displays Docker disk usage. |
+| `docker system df -v` | Displays detailed Docker disk usage. |
+| `docker info --format '{{.DockerRootDir}}'` | Displays Docker's data directory. |
+
+### Linux Networking
+
+#### Network interfaces and routing
+
+| Command | Description |
+|---|---|
+| `ip addr` | Displays network interfaces and IP addresses. |
+| `ip addr show eth0` | Displays information about the eth0 interface. |
+| `ip link` | Displays network interface link information. |
+| `ip route` | Displays the kernel IP routing table. |
+| `ip route get 8.8.8.8` | Displays the route selected for a destination IP. |
+
+#### Network connectivity
+
+| Command | Description |
+|---|---|
+| `ping google.com` | Tests network connectivity using ICMP. |
+| `ping -c 4 google.com` | Sends four ICMP packets. |
+| `traceroute google.com` | Displays the network path to a destination. |
+| `ss -tuln` | Displays listening TCP and UDP sockets. |
+| `sudo ss -tulnp` | Displays listening sockets with process information. |
+| `sudo ss -ltnp 'sport = :80'` | Displays processes listening on TCP port 80. |
+| `netstat -tulnp` | Displays listening TCP and UDP ports with process information. |
+
+#### DNS troubleshooting
+
+| Command | Description |
+|---|---|
+| `nslookup google.com` | Looks up DNS records for a domain. |
+| `nslookup -type=A google.com` | Queries IPv4 A records. |
+| `nslookup -type=AAAA google.com` | Queries IPv6 AAAA records. |
+| `nslookup google.com 8.8.8.8` | Queries a domain using a specified DNS server. |
+| `nslookup 8.8.8.8` | Performs a reverse DNS lookup. |
+| `dig google.com` | Displays detailed DNS query information. |
+| `dig google.com A` | Queries IPv4 A records. |
+| `dig google.com AAAA` | Queries IPv6 AAAA records. |
+| `dig @8.8.8.8 google.com` | Queries using a specified DNS server. |
+| `dig google.com +short` | Displays concise DNS results. |
+
+#### HTTP and HTTPS troubleshooting — curl
+
+| Command | Description |
+|---|---|
+| `curl https://example.com` | Sends a GET request and displays the response body. |
+| `curl -I https://example.com` | Sends a HEAD request and displays response headers. |
+| `curl -o /dev/null -s -w "%{http_code}\n" URL` | Displays only the HTTP status code. |
+| `curl -L URL` | Follows HTTP redirects. |
+| `curl -v URL` | Displays detailed connection, TLS and HTTP debugging information. |
+| `curl -X GET URL` | Explicitly specifies the GET method. |
+| `curl -X POST URL` | Explicitly specifies the POST method. |
+| `curl -H "Accept: application/json" URL` | Sends a custom HTTP header. |
+| `curl -H "Authorization: Bearer TOKEN" URL` | Sends a Bearer authorization header. |
+| `curl -d '{"key":"value"}' URL` | Sends request data; normally uses POST when no method is specified. |
+| `curl --connect-timeout 5 URL` | Sets a 5-second connection establishment timeout. |
+| `curl --max-time 10 URL` | Sets a 10-second maximum time for the complete operation. |
+
+#### File downloads — wget
+
+| Command | Description |
+|---|---|
+| `wget URL` | Downloads a file from a URL. |
+| `wget -O filename URL` | Downloads a file using a custom filename. |
+| `wget -b URL` | Downloads a file in the background. |
+| `wget -o download.log URL` | Saves wget log messages to a specified file. |
+| `wget --limit-rate=200k URL` | Limits download speed to approximately 200 KB/s. |
+| `wget -c URL` | Attempts to resume an interrupted download. |
+| `wget --spider URL` | Checks URL accessibility without retrieving the content. |
+
+---
