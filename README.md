@@ -464,3 +464,75 @@ Examples:
 | `wget --spider URL` | Checks URL accessibility without retrieving the content. |
 
 ---
+
+#### Hostname and DNS troubleshooting
+
+| Command | Description |
+|---|---|
+| `hostname` | Displays the current system hostname. |
+| `hostnamectl` | Displays hostname and system information. |
+| `hostname -I` | Displays IP addresses assigned to the system. |
+| `cat /etc/hostname` | Displays the configured system hostname. |
+| `cat /etc/hosts` | Displays local hostname-to-IP mappings. |
+| `cat /etc/nsswitch.conf` | Displays the order of name-service lookup sources. |
+| `cat /etc/resolv.conf` | Displays DNS resolver configuration. |
+| `resolvectl status` | Displays DNS configuration and status for network interfaces. |
+| `getent hosts example.com` | Resolves a hostname using system name-service sources. |
+| `getent ahosts example.com` | Displays available address information for a hostname. |
+| `getent ahostsv4 example.com` | Resolves IPv4 addresses using system name-service sources. |
+| `getent ahostsv6 example.com` | Resolves IPv6 addresses using system name-service sources. |
+
+---
+
+#### Network interface troubleshooting
+
+| Command | Description |
+|---|---|
+| `ip link show` | Displays network interfaces and their states. |
+| `ip link show eth0` | Displays information about the eth0 interface. |
+| `ip addr show` | Displays IP addresses assigned to network interfaces. |
+| `ip -4 addr` | Displays IPv4 addresses. |
+| `ip -6 addr` | Displays IPv6 addresses. |
+| `ip -s link show eth0` | Displays RX and TX interface statistics. |
+| `cat /sys/class/net/eth0/address` | Displays the MAC address of eth0. |
+
+---
+
+#### Routing table troubleshooting
+
+| Command | Description |
+|---|---|
+| `ip route` | Displays the IPv4 routing table. |
+| `ip route show` | Displays routing information. |
+| `ip route get 8.8.8.8` | Shows the route used to reach a destination. |
+| `ip -6 route` | Displays the IPv6 routing table. |
+
+---
+
+#### ARP and neighbour table troubleshooting
+
+| Command | Description |
+|---|---|
+| `ip neigh` | Displays the neighbour table. |
+| `ip neigh show` | Displays neighbour entries. |
+| `ip -s neigh` | Displays neighbour entries with statistics. |
+| `ip -4 neigh show` | Displays IPv4 neighbour entries. |
+| `ip -6 neigh show` | Displays IPv6 neighbour entries. |
+| `ip neigh show dev eth0` | Displays neighbour entries for eth0. |
+| `ip neigh get IP dev eth0` | Displays the neighbour entry for a specific IP. |
+| `arp -n` | Displays the ARP table (if installed). |
+
+---
+#### Network ports and firewall troubleshooting
+
+| Command | Description |
+|---|---|
+| `ss -tuln` | Displays listening TCP and UDP ports. |
+| `ss -tulnp` | Displays listening ports with process information. |
+| `ss -ant` | Displays TCP socket states. |
+| `sudo ss -lntup` | Displays listening TCP/UDP sockets and process details. |
+| `sudo lsof -i :80` | Identifies processes using port 80. |
+| `sudo ufw status` | Displays UFW firewall status. |
+| `sudo ufw status verbose` | Displays detailed UFW status. |
+| `sudo iptables -L -n -v` | Displays iptables rules and counters. |
+| `sudo nft list ruleset` | Displays the nftables ruleset. |
